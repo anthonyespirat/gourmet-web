@@ -1,0 +1,296 @@
+// Override Bootstrap's Sass default variables
+//
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables before
+// you import Bootstrap's source Sass files.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles. For example, change you can either change
+// `$body-color` or write more CSS that override's Bootstrap's CSS like so:
+// `body { color: red; }`.
+
+
+//
+// Bring in Bootstrap
+//
+
+// Option 1
+//
+// Import all of Bootstrap's CSS
+
+// @import "bootstrap/scss/bootstrap";
+
+// Option 2
+//
+// Place variable overrides first, then import just the styles you need. Note that some stylesheets are required no matter what.
+
+// FONT ADD
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap');
+
+@font-face {
+  font-family: 'Charline Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/font/Charline.woff') format('woff');
+}
+
+// Toggle global options
+$enable-gradients: true;
+$enable-shadows: true;
+
+// Customize some defaults
+$body-color: #333;
+$body-bg: #fff;
+$primary: #594a42;
+$secondary: #3daac7;
+$border-radius: .4rem;
+$success: #7952b3;
+
+@import "bootstrap/scss/functions"; // Required
+@import "bootstrap/scss/variables"; // Required
+@import "bootstrap/scss/mixins"; // Required
+
+@import "bootstrap/scss/root"; // Required
+@import "bootstrap/scss/reboot"; // Required
+@import "bootstrap/scss/type";
+@import "bootstrap/scss/images";
+// @import "bootstrap/scss/code";
+@import "bootstrap/scss/grid";
+// @import "bootstrap/scss/tables";
+@import "bootstrap/scss/forms";
+@import "bootstrap/scss/buttons";
+@import "bootstrap/scss/transitions";
+@import "bootstrap/scss/dropdown";
+// @import "bootstrap/scss/button-group";
+@import "bootstrap/scss/input-group"; // Requires forms
+@import "bootstrap/scss/custom-forms";
+@import "bootstrap/scss/nav";
+@import "bootstrap/scss/navbar"; // Requires nav
+// @import "bootstrap/scss/card";
+// @import "bootstrap/scss/breadcrumb";
+// @import "bootstrap/scss/pagination";
+// @import "bootstrap/scss/badge";
+// @import "bootstrap/scss/jumbotron";
+// @import "bootstrap/scss/alert";
+// @import "bootstrap/scss/progress";
+// @import "bootstrap/scss/media";
+// @import "bootstrap/scss/list-group";
+@import "bootstrap/scss/close";
+// @import "bootstrap/scss/toasts";
+@import "bootstrap/scss/modal"; // Requires transitions
+// @import "bootstrap/scss/tooltip";
+// @import "bootstrap/scss/popover";
+// @import "bootstrap/scss/carousel";
+// @import "bootstrap/scss/spinners";
+@import "bootstrap/scss/utilities";
+// @import "bootstrap/scss/print";
+
+
+
+//
+// Custom styles
+//
+
+@import "icon-list";
+
+body {
+  font-family: 'Montserrat', sans-serif;
+
+}
+
+.container {
+  max-width: 1600px;
+}
+
+.col-xl-6 {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+
+
+.cursive {
+  font-family: 'Charline Regular', cursive;
+}
+
+.menu {
+  list-style: none;
+  padding-left: 0;
+  padding-right: 0;
+
+  .lip-1 {
+    font-size: 1.5em;
+    font-weight: 600;
+  }
+
+  p {
+    margin-bottom: 0.6em !important;
+  }
+}
+
+.res-img {
+  max-width: 90% !important;
+}
+
+.about-para1 {
+  font-size: 1.1em;
+  line-height: 155%;
+  padding-bottom: 0 !important;
+}
+
+.about-para2 {
+  line-height: 170%;
+  letter-spacing: 1px;
+  font-size: 0.9em;
+}
+
+// -- HERO
+.hero {
+  background-image: url('/assets/images/img-06.jpg');
+  background-size: cover;
+  height: 70vh;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+  padding: 0 0 4em 10%;
+
+  h1 {
+    font-family: 'Charline Regular', cursive;
+    font-size: 3em;
+    color: $primary;
+  }
+}
+
+// FORMULAIRE
+form {
+  button {
+    border: none;
+    padding: 7px 12px;
+    background-color: #ccc;
+    color: $primary;
+  }
+
+  .form-control {
+    border-top: none !important;
+    border-left: none !important;
+    border-right: none !important;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 35px 0;
+
+    &:focus {
+      border: none;
+    }
+  }
+
+  .calendar {
+    position: relative;
+  }
+
+  svg {
+    position: absolute;
+    right: 1%;
+    top: 40%;
+  }
+}
+
+// FOOTER
+footer {
+  margin-top: 3em;
+  height: 100px;
+  background-color: #CCC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $primary;
+
+  p {
+    margin: 0;
+  }
+}
+
+
+// ------ RESPONSIVE ------
+@media (max-width:991px) {
+  .hero {
+    height: 60vh;
+  }
+
+  .res-column {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  .res-mt {
+    margin-top: 2em;
+  }
+
+  .res-img {
+    max-width: 70% !important;
+  }
+
+  .res-align-box {
+    text-align: center;
+  }
+
+  .res-justy {
+    justify-content: center;
+  }
+}
+
+@media (max-width:700px) {
+  .hero {
+    background-position: -100px;
+    height: 50vh;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+
+    h1 {
+      padding: 5%;
+      background-color: #FFF;
+
+    }
+  }
+}
+
+@media (max-width:500px) {
+  .p-3 {
+    padding: 0.5em !important;
+  }
+
+  .res-align {
+    text-align: center;
+  }
+
+  .container {
+    padding: 0 5px;
+  }
+
+  .res-img {
+    max-width: 100% !important;
+  }
+
+  .col-sm-12 {
+    padding: 0;
+  }
+
+  .hero {
+    height: 40vh;
+
+    h1 {
+      font-size: 2em;
+    }
+  }
+
+}
+
+
+
+// Style Bootstrap icons
+.bi {
+  fill: currentColor;
+}
